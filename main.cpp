@@ -126,7 +126,7 @@ void display()
             else break;
         }
         count++;
-        if (count ==35)
+        if (count ==36)
         {
             cout<< "CONGRATULATIONS!!";
             return;
@@ -139,21 +139,43 @@ void guide()
     cout<<"b. Your mission is break eggs until there's only 1 egg left\n";
     cout<<"c. To break an egg, you chose another egg next to it, follow the direction, if there is an empty place, the egg you chose will replace that position, the place of 2 eggs will be empty"<<endl;
     cout<<"d. Enter row -1 and Column -1 to exit the program"<<endl;
+    cout<<"e. You will get the answer after play at least 3 times"<<endl;
+}
+void hint()
+{
+    cout<<"This is a way to solve\n";
+    cout<<"1. (6;4) a\n2. (4;3) s\n3. (5;1) d\n4. (6;3) w\n5. (5;5) a\n6. (4;3) s\n";
+    cout<<"7. (6;2) d\n8. (3;4) s\n9. (6;4) w\n10. (3;6) a\n11. (3;4) s\n12. (4;6) a\n13. (5;4) w\n";
+    cout<<"14. (3;2) s\n15. (4;0) d\n16. (5;2) w\n17. (2;2) s\n18. (3;0) f\n19. (4;2) w\n20. (1;2) s\n";
+    cout<<"21. (2;0) d\n22. (3;2) w\n23. (3;4) a\n24. (1;4) s\n25. (2;6) a\n26. (3;4) w\n27. (0;4) s\n";
+    cout<<"28. (1;2) d\n29. (2;4) a\n30. (3;2) w\n31. (1;5) a\n32. (0;3) s\n33. (0;2) s\n34. (2;3) a\n";
+    cout<<"35. (1;1) s\n";
 }
 int main()
 {
     cout<<"____WElCOME TO EGG GAME_____"<<endl;
+    int count =0;
     while (true)
     {
         int choice;
-        cout<<"1. Rule "<<endl<<"2. Play"<<endl<<"Your choice: ";
+        cout<<"__________\n1. Rule "<<endl<<"2. Play"<<endl
+        if (count >=3)
+            cout<<"3. Hint"<<endl;
+        cout<<"Your choice: ";
         cin>>choice;
-        if (choice==2)
-            display();
-        else if (choice==1)
-            guide();
-        else
-            return 0;
+        switch (choice)
+        {
+            case 1: guide();
+                break;
+            case 2:
+                display();
+                break;
+            case 3:
+                if (count >=3)
+                hint();
+                break;
+            default: return 0;
+        }
     }
         
 }
